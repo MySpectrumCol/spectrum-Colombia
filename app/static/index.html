@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spectrum Colombia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="intro" id="intro">
+      <p class="eyebrow">Spectrum Colombia</p>
+      <h1>¿De verdad sabes dónde estás parado políticamente?</h1>
+      <p class="lead">Puede que la etiqueta que defiendes no piense igual que tú. Responde 10 preguntas honestas y descubre dónde caes en el mapa político colombiano.</p>
+      
+      <label class="field">
+        <span>Nombre de usuario</span>
+        <input id="username" autocomplete="nickname" placeholder="ej: usuario123">
+      </label>
+      
+      <label class="field">
+        <span>¿Con qué corriente política te identificas?</span>
+        <select id="selfLabel">
+          <option value="" disabled selected>Selecciona tu corriente...</option>
+          <option value="NONE">Ninguna / No sé</option>
+          <option value="UD">Ultraderecha</option>
+          <option value="D">Derecha</option>
+          <option value="C">Centro</option>
+          <option value="I">Izquierda</option>
+          <option value="UI">Ultraizquierda</option>
+        </select>
+      </label>
+      
+      <button class="primary" id="startButton">Empezar test</button>
+      <p class="note">No te pregunta por candidatos ni partidos. Test didáctico, sin afiliación oficial.</p>
+    </section>
+
+    <section class="test hidden" id="test">
+      <div class="topbar">
+        <span id="progressText">Pregunta 1 de 10</span>
+        <div class="progress"><span id="progressBar"></span></div>
+      </div>
+      <h2 id="questionText"></h2>
+      <div class="options" id="options"></div>
+    </section>
+
+    <section class="result hidden" id="result">
+      <p class="eyebrow">Tu resultado</p>
+      <div class="result-card" id="resultCard">
+        <span class="card-kicker">Mi Spectrum</span>
+        <h2 id="dominant"></h2>
+        <p id="cardLine">Colombia 2026</p>
+      </div>
+
+      <!-- Barra continua del espectro -->
+      <div class="spectrum-bar-container">
+        <span class="bar-title">Posición en el Espectro</span>
+        <div class="spectrum-bar" id="spectrumBar">
+          <div class="spectrum-marker" id="spectrumMarker"></div>
+        </div>
+        <div class="spectrum-labels">
+          <span>Ultraizquierda</span>
+          <span>Centro</span>
+          <span>Ultraderecha</span>
+        </div>
+      </div>
+
+      <!-- Feedback espejo -->
+      <div class="mirror-feedback-box" id="mirrorFeedbackBox">
+        <span class="feedback-title">Diagnóstico Espejo</span>
+        <p id="mirrorFeedback"></p>
+      </div>
+
+      <div class="bars" id="bars"></div>
+      <p class="summary" id="summary"></p>
+      <textarea id="shareText" readonly></textarea>
+      
+      <div class="actions">
+        <button class="primary" id="copyButton">Copiar para X</button>
+        <button class="secondary" id="downloadButton">Descargar tarjeta</button>
+        <a class="secondary" id="xShare" target="_blank" rel="noreferrer">Abrir en X</a>
+      </div>
+      
+      <div class="actions" style="margin-top: 10px;">
+        <button class="secondary" id="toggleStatsButton" style="width: 100%;">Ver Estadísticas Globales</button>
+      </div>
+
+      <!-- Sección de estadísticas globales -->
+      <div class="global-stats-container hidden" id="globalStatsContainer">
+        <span class="bar-title">Estadísticas de la Comunidad</span>
+        <div class="stats-bars" id="statsBars"></div>
+        <p class="stats-total" id="statsTotalParticipants"></p>
+      </div>
+
+      <button class="ghost" id="againButton">Hacer otra prueba</button>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
