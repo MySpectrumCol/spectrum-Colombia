@@ -68,10 +68,19 @@ async function startTest() {
   const labelVal = selfLabel.value;
   
   if (!userVal) {
-    alert("Por favor, ingresa tu nombre de usuario para comenzar el test.");
+    alert("Por favor, ingresa tu usuario de X (Twitter) o tu correo electrónico para comenzar.");
     username.focus();
     return;
   }
+
+  const xRegex = /^@?[a-zA-Z0-9_]{1,15}$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!xRegex.test(userVal) && !emailRegex.test(userVal)) {
+    alert("Formato no válido. Introduce un usuario de X válido (ej: @miusuario) o un correo electrónico (ej: tu@correo.com).");
+    username.focus();
+    return;
+  }
+
   if (!labelVal) {
     alert("Por favor, selecciona con qué corriente política te identificas.");
     selfLabel.focus();
@@ -310,7 +319,8 @@ async function drawResultCard(payload) {
 
   ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
   ctx.font = "500 24px Outfit, sans-serif";
-  ctx.fillText(`@${payload.username} (Intento #${payload.attempt_number}) | Test de Orientación Política`, 110, 265);
+  const displayUser = payload.username.includes("@") ? payload.username : `@${payload.username}`;
+  ctx.fillText(`${displayUser} (Intento #${payload.attempt_number}) | Test de Orientación Política`, 110, 265);
 
   // Dibujar las barras de porcentaje secundarias (las 5 categorías)
   const entries = Object.entries(payload.result);

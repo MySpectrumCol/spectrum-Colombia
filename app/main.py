@@ -399,7 +399,7 @@ def get_result(user_id: str, request: Request) -> Any:
   <meta property="og:url" content="{result_url}">
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/styles.css?v=4">
+  <link rel="stylesheet" href="/static/styles.css?v=5">
   <style>
     body {{
       background: var(--paper);
