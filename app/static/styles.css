@@ -505,4 +505,9 @@ button,
   .track {
     background: #2b2927;
   }
+
+  .primary {
+    color: var(--panel);
+  }
 }
+

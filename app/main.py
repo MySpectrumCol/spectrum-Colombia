@@ -399,7 +399,7 @@ def get_result(user_id: str, request: Request) -> Any:
   <meta property="og:url" content="{result_url}">
 
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/styles.css?v=3">
+  <link rel="stylesheet" href="/static/styles.css?v=4">
   <style>
     body {{
       background: var(--paper);
@@ -427,7 +427,7 @@ def get_result(user_id: str, request: Request) -> Any:
       <p class="summary" style="margin-top: 20px;">{row['summary']}</p>
       
       <div class="actions" style="grid-template-columns: 1fr; margin-top: 24px;">
-        <a class="primary" href="/" style="display: flex; align-items: center; justify-content: center; text-decoration: none; min-height: 44px; border-radius: 8px; font-weight: 700; color: white; background: var(--ink);">¡Haz el Test Spectrum Tú También!</a>
+        <a class="primary" href="/" style="display: flex; align-items: center; justify-content: center; text-decoration: none; min-height: 44px; border-radius: 8px; font-weight: 700;">¡Haz el Test Spectrum Tú También!</a>
       </div>
     </section>
   </main>
