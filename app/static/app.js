@@ -116,12 +116,21 @@ function renderQuestion() {
   options.innerHTML = "";
 
   Object.entries(question.options).forEach(([letter, text]) => {
-    const button = document.createElement("button");
-    button.className = "option";
-    button.type = "button";
-    button.innerHTML = `<span class="letter">${letter}</span><span>${text}</span>`;
-    button.addEventListener("click", () => answerQuestion(letter));
-    options.appendChild(button);
+    const optDiv = document.createElement("div");
+    optDiv.className = "option";
+    optDiv.setAttribute("role", "button");
+    optDiv.setAttribute("tabindex", "0");
+    optDiv.innerHTML = `<span class="letter">${letter}</span><span>${text}</span>`;
+    
+    const selectHandler = () => answerQuestion(letter);
+    optDiv.addEventListener("click", selectHandler);
+    optDiv.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        selectHandler();
+      }
+    });
+    options.appendChild(optDiv);
   });
 }
 

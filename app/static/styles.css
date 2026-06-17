@@ -194,13 +194,20 @@ button,
   width: 100%;
   min-height: 58px;
   display: grid;
-  grid-template-columns: 36px 1fr;
+  grid-template-columns: 32px 1fr;
   gap: 12px;
   align-items: center;
   border: 1px solid var(--line);
   background: white;
   color: var(--ink);
   text-align: left;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  user-select: none;
 }
 
 .option:hover {
@@ -463,5 +470,39 @@ button,
   
   select {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23f7f5ef' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  }
+
+  .option {
+    background: var(--panel);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+
+  .option:hover {
+    background: #232220;
+    border-color: var(--blue);
+  }
+
+  .letter {
+    background: var(--line);
+    color: var(--ink);
+  }
+
+  .secondary {
+    background: var(--panel);
+    color: var(--ink);
+    border-color: var(--line);
+  }
+
+  .secondary:hover {
+    background: var(--line);
+  }
+
+  .progress {
+    background: #2b2927;
+  }
+
+  .track {
+    background: #2b2927;
   }
 }
